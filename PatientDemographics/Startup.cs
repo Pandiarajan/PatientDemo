@@ -43,7 +43,7 @@ namespace PatientDemographics
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Patients/Error");
             }
 
             app.UseStaticFiles();
@@ -53,7 +53,7 @@ namespace PatientDemographics
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller}/{action=Index}/{id?}");
             });
         }
     }
