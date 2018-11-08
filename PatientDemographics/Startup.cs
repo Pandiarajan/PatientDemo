@@ -53,7 +53,7 @@ namespace PatientDemographics
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller}/{action=Index}/{id?}");
+                    template: "{controller=Patient}/{action=Index}/{id?}");
             });
         }
     }

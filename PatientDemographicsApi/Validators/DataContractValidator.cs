@@ -14,6 +14,7 @@ namespace PatientDemographicsApi.Validators
             {
                 RuleFor(p => p.Forename).NotNull().NotEmpty().Length(3, 50).WithMessage("Forename must be between 3 to 50 characters length");
                 RuleFor(p => p.Surname).NotNull().NotEmpty().Length(2, 50).WithMessage("Surname must be between 2 to 50 characters length");
+                RuleFor(p => p.Gender).NotNull().NotEmpty().WithMessage("Gender must not be empty");
                 RuleFor(p => p.DateOfBirth).NotNull().NotEmpty().Must(ValidBirthDate).WithMessage("Valid format for DateOfBirth is yyyy-MM-dd");
             }
 

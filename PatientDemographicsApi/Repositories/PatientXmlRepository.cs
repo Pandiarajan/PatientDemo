@@ -31,11 +31,13 @@ namespace PatientDemographicsApi.Repositories
             dt.Rows.Add(patient.Id, patient.Forename, patient.Surname, patient.DateOfBirth, patient.Gender.Name);
 
             DataTable dtPhone = dataSet.Tables[Constants.PhoneTableName] as DataTable;
-            foreach (var phoneNumber in patient.TelephoneNumbers)
+            if (patient.TelephoneNumbers != null)
             {
-                dtPhone.Rows.Add(patient.Id, phoneNumber.PhoneType.Id, phoneNumber.Number);
+                foreach (var phoneNumber in patient.TelephoneNumbers)
+                {
+                    dtPhone.Rows.Add(patient.Id, phoneNumber.PhoneType.Id, phoneNumber.Number);
+                }
             }
-            
             dataSet.WriteXml(Constants.DataSetFileName);
             return true;
         }

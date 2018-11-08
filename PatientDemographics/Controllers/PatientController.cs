@@ -9,7 +9,7 @@ using PatientDemographics.Models;
 
 namespace PatientDemographics.Controllers
 {
-    public class PatientsController : Controller
+    public class PatientController : Controller
     {
         public IActionResult Index()
         {
@@ -17,7 +17,7 @@ namespace PatientDemographics.Controllers
 
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:54165/api");
+                client.BaseAddress = new Uri("http://localhost:54165/api/");
                 //HTTP GET
                 var responseTask = client.GetAsync("patients");
                 responseTask.Wait();
@@ -51,7 +51,7 @@ namespace PatientDemographics.Controllers
             {
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri("http://localhost:64189/api");
+                    client.BaseAddress = new Uri("http://localhost:54165/api/");
 
                     //HTTP POST
                     var postTask = client.PostAsJsonAsync<PatientViewModel>("patients", patient);
@@ -63,7 +63,6 @@ namespace PatientDemographics.Controllers
                         return RedirectToAction("Index");
                     }
                 }
-
                 ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
             }
             return View(patient);
