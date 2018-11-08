@@ -1,6 +1,4 @@
-﻿using PatientDemographicsApi.Model;
-
-namespace PatientDemographicsApi.DataContract
+﻿namespace PatientDemographicsApi.DataContract
 {
     public class PatientInputDto
     {

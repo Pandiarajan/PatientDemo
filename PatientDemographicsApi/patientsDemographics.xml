@@ -1,0 +1,39 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Patient>
+    <Id>05298d1a-a352-4de7-9fa2-099478a7fc32</Id>
+    <Forename>Pandian</Forename>
+    <Surname>Rajan</Surname>
+    <DateOfBirth>4/17/1984 12:00:00 AM</DateOfBirth>
+    <Gender>Male</Gender>
+    <TelephoneNumbers>PatientDemographicsApi.Model.TelephoneNumber[]</TelephoneNumbers>
+  </Patient>
+  <Patient>
+    <Id>31c715e3-52df-454c-b48a-ea10d69f1c9a</Id>
+    <Forename>Pandian New</Forename>
+    <Surname>Rajan</Surname>
+    <DateOfBirth>4/17/1984 12:00:00 AM</DateOfBirth>
+    <Gender>Male</Gender>
+    <TelephoneNumbers>PatientDemographicsApi.Model.TelephoneNumber[]</TelephoneNumbers>
+  </Patient>
+  <Phone>
+    <Id>05298d1a-a352-4de7-9fa2-099478a7fc32</Id>
+    <PhoneTypeId>1</PhoneTypeId>
+    <Number>9840227740</Number>
+  </Phone>
+  <Phone>
+    <Id>05298d1a-a352-4de7-9fa2-099478a7fc32</Id>
+    <PhoneTypeId>2</PhoneTypeId>
+    <Number>88402</Number>
+  </Phone>
+  <Phone>
+    <Id>31c715e3-52df-454c-b48a-ea10d69f1c9a</Id>
+    <PhoneTypeId>1</PhoneTypeId>
+    <Number>9840227740</Number>
+  </Phone>
+  <Phone>
+    <Id>31c715e3-52df-454c-b48a-ea10d69f1c9a</Id>
+    <PhoneTypeId>2</PhoneTypeId>
+    <Number>88402</Number>
+  </Phone>
+</NewDataSet>

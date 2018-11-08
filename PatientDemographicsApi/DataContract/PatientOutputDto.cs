@@ -2,7 +2,7 @@
 
 namespace PatientDemographicsApi.DataContract
 {
-    public class PatientDto
+    public class PatientOutputDto
     {
         public string Forename { get; set; }
         public string Surname { get; set; }

@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using PatientDemographicsApi.Config;
 using PatientDemographicsApi.DataContract;
 using PatientDemographicsApi.Model;
 using PatientDemographicsApi.Repositories;
@@ -20,18 +23,31 @@ namespace PatientDemographicsApi.Controllers
             _patientRepository = patientRepository;
         }
 
-        // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<PatientDto>> Get()
+        public ActionResult<IEnumerable<PatientOutputDto>> Get()
         {
-            return Ok(_mapper.Map<IEnumerable<PatientDto>>(_patientRepository.Get()));
+            return Ok(_mapper.Map<IEnumerable<PatientOutputDto>>(_patientRepository.Get()));
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] PatientInputDto patient)
+        [HttpGet("{patientId}")]
+        public ActionResult<PatientOutputDto> Get(Guid patientId)
         {
+            return Ok(_mapper.Map<PatientOutputDto>(_patientRepository.Get(patientId)));
+        }
 
+        [HttpPost]
+        public IActionResult Post([FromBody] PatientInputDto patientDto)
+        {
+            Patient patient = new Patient(Guid.NewGuid(), patientDto.Forename, 
+                patientDto.Surname, 
+                DateTime.ParseExact(patientDto.DateOfBirth, Constants.DateFormat, CultureInfo.InvariantCulture), 
+                Gender.GetGender(patientDto.Gender), 
+                _mapper.Map<Model.TelephoneNumber[]>(patientDto.TelephoneNumbers));
+
+            if (_patientRepository.CanSave(patient))
+                return Ok(patient.Id);
+            else
+                return Conflict(patientDto);
         }
     }
 }
