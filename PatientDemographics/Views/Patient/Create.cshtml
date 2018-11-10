@@ -5,14 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
-
-<h4>PatientViewModel</h4>
+<h2>Create Patient</h2>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>            
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Forename" class="control-label"></label>
                 <input asp-for="Forename" class="form-control" />
@@ -25,7 +23,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="DateOfBirth" class="control-label"></label>
-                <input asp-for="DateOfBirth" class="form-control" />
+                <input asp-for="DateOfBirth" class="form-control datepicker" placeholder="yy-mm-dd" data-date-format='yy-mm-dd' />
                 <span asp-validation-for="DateOfBirth" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -33,8 +31,31 @@
                 Female: @Html.RadioButtonFor(m => m.Gender, "Female")
                 <span asp-validation-for="Gender" class="text-danger"></span>
             </div>
+            <div class="form-group" id="numbers">
+                <div class="form-group">
+                    <label asp-for="TelephoneNumbers[0].PhoneNumber" class="control-label"></label>
+                    <input asp-for="TelephoneNumbers[0].PhoneNumber" type="tel" class="form-control" />
+                    <select asp-for="TelephoneNumbers[0].PhoneType" asp-items="Html.GetEnumSelectList<PhoneType>()" class="form-control"></select>
+                    <span asp-validation-for="TelephoneNumbers[0].PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TelephoneNumbers[1].PhoneNumber" class="control-label"></label>
+                    <input asp-for="TelephoneNumbers[1].PhoneNumber" type="tel" class="form-control" />
+                    <select asp-for="TelephoneNumbers[1].PhoneType" asp-items="Html.GetEnumSelectList<PhoneType>()" class="form-control"></select>
+                    <span asp-validation-for="TelephoneNumbers[1].PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TelephoneNumbers[2].PhoneNumber" class="control-label"></label>
+                    <input asp-for="TelephoneNumbers[2].PhoneNumber" type="tel" class="form-control" />
+                    <select asp-for="TelephoneNumbers[2].PhoneType" asp-items="Html.GetEnumSelectList<PhoneType>()" class="form-control"></select>
+                    <span asp-validation-for="TelephoneNumbers[2].PhoneNumber" class="text-danger"></span>
+                </div>
+            </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <a id="AddButton" style="cursor: pointer">Add phone numbers</a>
+            </div>
+            <div class="form-group">
+                <input type="submit" id="btnCreate" value="Create" class="btn btn-default" />
             </div>
         </form>
     </div>
@@ -45,5 +66,5 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}   
 }
