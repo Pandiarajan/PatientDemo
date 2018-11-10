@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PatientDemographics.Models;
 
 namespace PatientDemographics
 {
@@ -16,6 +17,8 @@ namespace PatientDemographics
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            Constants.PatientApiEndPoint = configuration.GetValue<string>("PatientsApiEndPoint");
+            Constants.PatientApiRequestUri = configuration.GetValue<string>("PatientApiRequestUri");
         }
 
         public IConfiguration Configuration { get; }

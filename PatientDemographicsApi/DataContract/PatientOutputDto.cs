@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace PatientDemographicsApi.DataContract
+﻿namespace PatientDemographicsApi.DataContract
 {
     public class PatientOutputDto
     {

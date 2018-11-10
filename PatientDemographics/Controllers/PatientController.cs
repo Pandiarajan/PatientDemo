@@ -16,9 +16,9 @@ namespace PatientDemographics.Controllers
 
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:54165/api/");
+                client.BaseAddress = new Uri(Constants.PatientApiEndPoint);
                 //HTTP GET
-                var responseTask = client.GetAsync("patients");
+                var responseTask = client.GetAsync(Constants.PatientApiRequestUri);
                 responseTask.Wait();
 
                 var result = responseTask.Result;
@@ -50,10 +50,10 @@ namespace PatientDemographics.Controllers
             {
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri("http://localhost:54165/api/");
+                    client.BaseAddress = new Uri(Constants.PatientApiEndPoint);
 
                     //HTTP POST
-                    var postTask = client.PostAsJsonAsync<PatientViewModel>("patients", patient);
+                    var postTask = client.PostAsJsonAsync<PatientViewModel>(Constants.PatientApiRequestUri, patient);
                     postTask.Wait();
 
                     var result = postTask.Result;
