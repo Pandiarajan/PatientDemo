@@ -1,0 +1,7 @@
+<table class="table table-sm table-hover">
+  <tr *ngFor="let patient of patientService.patientList">        
+    <td>{{patient.forename}} - {{patient.surname}}</td>
+    <td>{{patient.dateOfBirth}}</td>
+    <td>{{patient.gender}}</td>
+  </tr>
+</table>

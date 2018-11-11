@@ -1,0 +1,50 @@
+<form class="patient-form" #patientForm="ngForm" (ngSubmit)="onSubmitForm(patientForm)">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name="forename" #forename="ngModel" [(ngModel)]="patientService.selectedPatient.forename"
+        placeholder="Forname" required>
+      <div class="validation-error" *ngIf="forename.invalid && forename.touched">This field is required</div>
+    </div>
+    <div class="form-group col-md-6">
+      <input class="form-control" name="surname" #surname="ngModel" [(ngModel)]="patientService.selectedPatient.surname"
+        placeholder="Surname" required>
+      <div class="validation-error" *ngIf="surname.invalid && surname.touched">This field is required</div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+        <input class="form-control" name="dateOfBirth" #dateOfBirth="ngModel" [(ngModel)]="patientService.selectedPatient.dateOfBirth" placeholder="Date of Birth">
+    </div>
+    <div class="form-group col-md-6">
+      <div class="form-group">
+        <label>Gender:</label>
+        <label class="radio-inline">
+          <input type="radio" name="gender" #gender="ngModel" value='Male' [(ngModel)]="patientService.selectedPatient.gender">Male
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="gender" #gender="ngModel" value='Female' [(ngModel)]="patientService.selectedPatient.gender">Female
+        </label>
+
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name="phoneNumber" #phoneNumber="ngModel" [(ngModel)]="patientService.selectedPatient.phoneNumber"
+        placeholder="Phone Number">
+    </div>
+    <div class="form-group col-md-6">      
+        <select value="" name="phoneType" #phoneType="ngModel" [(ngModel)]="selectedPhoneType">
+            <option *ngFor="let p of patientService.phoneTypes" [ngValue]="p">{{p}}</option>
+          </select>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <button [disabled]="!patientForm.valid" type="submit" class="btn btn-lg btn-block btn-info">Submit</button>
+    </div>
+    <div class="form-group col-md-4">
+      <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(patientForm)">Reset</button>
+    </div>
+  </div>
+</form>

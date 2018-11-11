@@ -3,15 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientDemographics", "PatientDemographics\PatientDemographics.csproj", "{4BAD9D31-8A0F-4117-AE51-68D44A5C2B96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientDemographics.Repository", "PatientDemographics.Repository\PatientDemographics.Repository.csproj", "{079DE2F6-9EA2-4EE3-BC88-0D17EBE46880}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientDemographicsApi", "PatientDemographicsApi\PatientDemographicsApi.csproj", "{E20F1BD0-D9E8-4244-92C6-8B69B615E073}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientDemographics.DataContract", "PatientDemographics.DataContract\PatientDemographics.DataContract.csproj", "{D7C67CCC-6391-4FF3-ABEF-4EF69E0AA170}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientDemographics.Repository", "PatientDemographics.Repository\PatientDemographics.Repository.csproj", "{079DE2F6-9EA2-4EE3-BC88-0D17EBE46880}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientDemographics.Domain", "PatientDemographics.Domain\PatientDemographics.Domain.csproj", "{5450E315-A3BF-4915-A494-587D845667BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientDemographics.DataContract", "PatientDemographics.DataContract\PatientDemographics.DataContract.csproj", "{D7C67CCC-6391-4FF3-ABEF-4EF69E0AA170}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientDemographics.Domain", "PatientDemographics.Domain\PatientDemographics.Domain.csproj", "{5450E315-A3BF-4915-A494-587D845667BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientDemo", "PatientDemo\PatientDemo.csproj", "{BA86375C-B159-442A-9D5D-36DD0476B063}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4BAD9D31-8A0F-4117-AE51-68D44A5C2B96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4BAD9D31-8A0F-4117-AE51-68D44A5C2B96}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4BAD9D31-8A0F-4117-AE51-68D44A5C2B96}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4BAD9D31-8A0F-4117-AE51-68D44A5C2B96}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E20F1BD0-D9E8-4244-92C6-8B69B615E073}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E20F1BD0-D9E8-4244-92C6-8B69B615E073}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E20F1BD0-D9E8-4244-92C6-8B69B615E073}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E20F1BD0-D9E8-4244-92C6-8B69B615E073}.Release|Any CPU.Build.0 = Release|Any CPU
 		{079DE2F6-9EA2-4EE3-BC88-0D17EBE46880}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{079DE2F6-9EA2-4EE3-BC88-0D17EBE46880}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{079DE2F6-9EA2-4EE3-BC88-0D17EBE46880}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +29,10 @@ Global
 		{5450E315-A3BF-4915-A494-587D845667BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5450E315-A3BF-4915-A494-587D845667BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5450E315-A3BF-4915-A494-587D845667BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA86375C-B159-442A-9D5D-36DD0476B063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA86375C-B159-442A-9D5D-36DD0476B063}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA86375C-B159-442A-9D5D-36DD0476B063}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA86375C-B159-442A-9D5D-36DD0476B063}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
