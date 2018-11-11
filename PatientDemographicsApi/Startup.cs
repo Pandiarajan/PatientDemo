@@ -9,6 +9,8 @@ using AutoMapper;
 using Newtonsoft.Json.Serialization;
 using PatientDemographicsApi.Config;
 using PatientDemographicsApi.Validators.CarDataContractValidator;
+using PatientDemographics.Repository;
+using Microsoft.EntityFrameworkCore;
 
 namespace PatientDemographicsApi
 {
@@ -24,6 +26,7 @@ namespace PatientDemographicsApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ApiContext>(opt => opt.UseInMemoryDatabase("PatientDemo"));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                 .AddFluentValidation(f => f.RegisterValidatorsFromAssembly(Assembly.GetAssembly(typeof(DataContractValidator))))
                 .AddJsonOptions(opt => opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver());

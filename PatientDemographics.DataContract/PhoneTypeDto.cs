@@ -1,6 +1,6 @@
-﻿namespace PatientDemographicsApi.DataContract
+﻿namespace PatientDemographics.DataContract
 {
-    public enum PhoneType
+    public enum PhoneTypeDto
     {
         MobilePhone = 1,
         HomePhone = 2,

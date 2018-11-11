@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace PatientDemographicsApi.Model
+namespace PatientDemographics.Domain
 {
     public class PhoneType
     {

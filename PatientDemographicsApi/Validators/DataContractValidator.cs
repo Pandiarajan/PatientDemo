@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Globalization;
 using FluentValidation;
+using PatientDemographics.DataContract;
 using PatientDemographicsApi.Config;
-using PatientDemographicsApi.DataContract;
 
 namespace PatientDemographicsApi.Validators
 {

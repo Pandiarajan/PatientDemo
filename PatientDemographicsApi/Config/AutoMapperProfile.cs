@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using PatientDemographicsApi.DataContract;
-using PatientDemographicsApi.Model;
+using PatientDemographics.DataContract;
+using PatientDemographics.Domain;
 
 namespace PatientDemographicsApi.Config
 {
@@ -12,9 +12,9 @@ namespace PatientDemographicsApi.Config
                 .ForMember(dto => dto.Gender, opt => opt.MapFrom(src => src.Gender.Name))
                 .ForMember(dto => dto.DateOfBirth, opt => opt.MapFrom(src => src.DateOfBirth.ToShortDateString()));
 
-            CreateMap<DataContract.TelephoneNumber, Model.TelephoneNumber>()
+            CreateMap<TelephoneNumberDto, TelephoneNumber>()
                 .ForMember(model => model.Number, opt => opt.MapFrom(src => src.PhoneNumber))
-                .ForMember(model => model.PhoneType, opt => opt.MapFrom(src => Model.PhoneType.Get((int)src.PhoneType)));
+                .ForMember(model => model.PhoneType, opt => opt.MapFrom(src => PhoneType.Get((int)src.PhoneType)));
         }
     }
 }

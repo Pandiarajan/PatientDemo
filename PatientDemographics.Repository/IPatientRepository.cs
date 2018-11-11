@@ -1,13 +1,13 @@
-﻿using PatientDemographicsApi.Model;
+﻿using PatientDemographics.Domain;
 using System;
 using System.Collections.Generic;
 
-namespace PatientDemographicsApi.Repositories
+namespace PatientDemographics.Repository
 {
     public interface IPatientRepository
     {
         IEnumerable<Patient> Get();
-        bool CanSave(Patient patient);
+        void Save(Patient patient);
         Patient Get(Guid patientId);
     }
 }

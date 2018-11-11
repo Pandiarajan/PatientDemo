@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Globalization;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using PatientDemographics.DataContract;
+using PatientDemographics.Domain;
+using PatientDemographics.Repository;
 using PatientDemographicsApi.Config;
-using PatientDemographicsApi.DataContract;
-using PatientDemographicsApi.Model;
-using PatientDemographicsApi.Repositories;
 
 namespace PatientDemographicsApi.Controllers
 {
@@ -42,10 +42,13 @@ namespace PatientDemographicsApi.Controllers
                 patientDto.Surname, 
                 DateTime.ParseExact(patientDto.DateOfBirth, Constants.DateFormat, CultureInfo.InvariantCulture), 
                 Gender.GetGender(patientDto.Gender), 
-                _mapper.Map<Model.TelephoneNumber[]>(patientDto.TelephoneNumbers));
+                _mapper.Map<TelephoneNumber[]>(patientDto.TelephoneNumbers));
 
-            if (_patientRepository.CanSave(patient))
+            if (_patientRepository.Get(patient.Id) == null)
+            {
+                _patientRepository.Save(patient);
                 return Ok(patient.Id);
+            }
             else
                 return Conflict(patientDto);
         }

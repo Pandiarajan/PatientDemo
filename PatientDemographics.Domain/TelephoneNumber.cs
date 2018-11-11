@@ -1,4 +1,4 @@
-﻿namespace PatientDemographicsApi.Model
+﻿namespace PatientDemographics.Domain
 {
     public class TelephoneNumber
     {

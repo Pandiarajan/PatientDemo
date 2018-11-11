@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PatientDemographicsApi.Model
+namespace PatientDemographics.Domain
 {
     public class Patient
     {

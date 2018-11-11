@@ -1,8 +1,5 @@
-﻿using AutoMapper;
-using Microsoft.Extensions.DependencyInjection;
-using PatientDemographicsApi.Model;
-using PatientDemographicsApi.Repositories;
-using System.Collections.Generic;
+﻿using Microsoft.Extensions.DependencyInjection;
+using PatientDemographics.Repository;
 
 namespace PatientDemographicsApi.Config
 {
@@ -10,7 +7,9 @@ namespace PatientDemographicsApi.Config
     {
         public static IServiceCollection AddDependencies(this IServiceCollection services)
         {
-            return services.AddScoped<IPatientRepository, PatientXmlRepository>();
+            return services
+                .AddScoped<IXmlConverter, XmlConverter>()
+                .AddScoped<IPatientRepository, PatientRepository>();
         }        
     }
 }

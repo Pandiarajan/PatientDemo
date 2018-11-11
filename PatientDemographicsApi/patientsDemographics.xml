@@ -6,7 +6,6 @@
     <Surname>Rajan</Surname>
     <DateOfBirth>4/17/1984 12:00:00 AM</DateOfBirth>
     <Gender>Male</Gender>
-    <TelephoneNumbers>PatientDemographicsApi.Model.TelephoneNumber[]</TelephoneNumbers>
   </Patient>
   <Patient>
     <Id>31c715e3-52df-454c-b48a-ea10d69f1c9a</Id>
@@ -14,7 +13,6 @@
     <Surname>Rajan</Surname>
     <DateOfBirth>4/17/1984 12:00:00 AM</DateOfBirth>
     <Gender>Male</Gender>
-    <TelephoneNumbers>PatientDemographicsApi.Model.TelephoneNumber[]</TelephoneNumbers>
   </Patient>
   <Patient>
     <Id>3bb438cd-f835-4ee1-a734-e64d086fa5d1</Id>

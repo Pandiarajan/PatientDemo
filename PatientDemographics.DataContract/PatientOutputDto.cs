@@ -1,4 +1,4 @@
-﻿namespace PatientDemographicsApi.DataContract
+﻿namespace PatientDemographics.DataContract
 {
     public class PatientOutputDto
     {
