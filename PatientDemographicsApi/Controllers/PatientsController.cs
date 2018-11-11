@@ -30,7 +30,7 @@ namespace PatientDemographicsApi.Controllers
         }
 
         [HttpGet("{patientId}")]
-        public ActionResult<PatientOutputDto> Get(Guid patientId)
+        public ActionResult<PatientOutputDto> Get(int patientId)
         {
             return Ok(_mapper.Map<PatientOutputDto>(_patientRepository.Get(patientId)));
         }
@@ -38,11 +38,11 @@ namespace PatientDemographicsApi.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] PatientInputDto patientDto)
         {
-            Patient patient = new Patient(Guid.NewGuid(), patientDto.Forename, 
+            Patient patient = new Patient(patientDto.Forename, 
                 patientDto.Surname, 
                 DateTime.ParseExact(patientDto.DateOfBirth, Constants.DateFormat, CultureInfo.InvariantCulture), 
                 Gender.GetGender(patientDto.Gender), 
-                _mapper.Map<TelephoneNumber[]>(patientDto.TelephoneNumbers));
+                _mapper.Map<List<TelephoneNumber>>(patientDto.TelephoneNumbers));
 
             if (_patientRepository.Get(patient.Id) == null)
             {

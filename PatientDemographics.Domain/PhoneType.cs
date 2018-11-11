@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Serialization;
 
 namespace PatientDemographics.Domain
 {
@@ -9,15 +11,18 @@ namespace PatientDemographics.Domain
         public static PhoneType HomePhone = new PhoneType(2, "HomePhone");
         public static PhoneType WorkPhone = new PhoneType(3, "WorkPhone");
         private static IEnumerable<PhoneType> PhoneNumberTypes = new[] { MobilePhone, HomePhone, WorkPhone };
-
+        public PhoneType()
+        {
+        }
         public PhoneType(int id, string name)
         {
             Id = id;
             Name = name;
         }
 
-        public int Id { get; }
-        public string Name { get; }
+        [XmlIgnore]
+        public int Id { get; set; }
+        public string Name { get; set; }
         public static PhoneType Get(int id)
         {
             return PhoneNumberTypes.FirstOrDefault(p => p.Id == id);

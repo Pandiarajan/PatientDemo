@@ -6,7 +6,7 @@ namespace PatientDemographics.Models
 {
     public class PatientViewModel
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         [Required, StringLength(50, MinimumLength = 3)]
         public string Forename { get; set; }
         [Required, StringLength(50, MinimumLength = 2)]

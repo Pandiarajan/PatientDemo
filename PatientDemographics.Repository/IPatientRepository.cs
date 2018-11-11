@@ -1,5 +1,4 @@
 ﻿using PatientDemographics.Domain;
-using System;
 using System.Collections.Generic;
 
 namespace PatientDemographics.Repository
@@ -8,6 +7,6 @@ namespace PatientDemographics.Repository
     {
         IEnumerable<Patient> Get();
         void Save(Patient patient);
-        Patient Get(Guid patientId);
+        Patient Get(int patientId);
     }
 }

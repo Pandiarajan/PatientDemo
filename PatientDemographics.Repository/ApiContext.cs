@@ -9,6 +9,10 @@ namespace PatientDemographics.Repository
             : base(options)
         {
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<PatientXml>().Property(e => e.Id).ValueGeneratedOnAdd();
+        }
 
         public DbSet<PatientXml> Patients { get; set; }
     }

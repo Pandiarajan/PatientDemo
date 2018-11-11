@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Serialization;
 
 namespace PatientDemographics.Domain
 {
@@ -9,6 +11,9 @@ namespace PatientDemographics.Domain
         public static Gender Female = new Gender(2, "Female");
         public static Gender Others = new Gender(3, "Others");
         private static IEnumerable<Gender> GenderList = new[] { Male, Female, Others };
+        public Gender()
+        {
+        }
         public Gender(int id, string name)
         {
             Id = id;
@@ -19,8 +24,8 @@ namespace PatientDemographics.Domain
         {
             return GenderList.FirstOrDefault(g => g.Name == gender);
         }
-
-        public int Id { get; }
-        public string Name { get; }
+        [XmlIgnore]
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

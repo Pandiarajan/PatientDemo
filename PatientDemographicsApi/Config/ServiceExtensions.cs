@@ -8,7 +8,8 @@ namespace PatientDemographicsApi.Config
         public static IServiceCollection AddDependencies(this IServiceCollection services)
         {
             return services
-                .AddScoped<IXmlConverter, XmlConverter>()
+                .AddScoped<ISerializer, Serializer>()
+                .AddScoped<ApiContext, ApiContext>()
                 .AddScoped<IPatientRepository, PatientRepository>();
         }        
     }
