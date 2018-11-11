@@ -17,8 +17,10 @@ namespace PatientDemographics.Repository
         public void Save(Patient patient)
         {
             var xmlData = _serializer.Serialize(patient);
-            _apiContext.Patients.Add(new PatientXml(xmlData));
+            var xmlPatient = new PatientXml(xmlData);
+            _apiContext.Patients.Add(xmlPatient);
             _apiContext.SaveChanges();
+            patient.Id = xmlPatient.Id;//Auto generated id.
         }
 
         public IEnumerable<Patient> Get()
